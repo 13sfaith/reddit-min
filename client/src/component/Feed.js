@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 
-import Feed from './component/Feed.js';
+import Post from './Post.js';
 
-import './App.css';
-
-class App extends Component {
+class Feed extends Component {
   constructor(props){
     super(props);
 
     this.state = {
       data : [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -23,16 +21,17 @@ class App extends Component {
     //console.log(this.state.data);
   }
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Reddit</h1>
-        <h3>r/all</h3>
 
-        <Feed/>
+  render() {
+    return(
+      <div>
+        {this.state.data.map((item, index) =>
+          <Post key={index} sub={item.data.subreddit} title={item.data.title}/>
+
+        )}
       </div>
     );
   }
 }
 
-export default App;
+export default Feed;
