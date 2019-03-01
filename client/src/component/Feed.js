@@ -11,19 +11,27 @@ class Feed extends Component {
     this.test = this.test.bind(this);
   }
 
-  test() {
-    this.props.refreshFeed('unixporn');
+  test(e) {
+    this.props.refreshFeed(e.target.value);
+    // console.log(e.target.value);
     // fetch('/users/sub/aww')
     //   .then((res) => this.props.refreshFeed());
   }
 
   // <button onClick={this.test}></button>
+  // <h3>r/all</h3>
 
   render() {
     return(
       <div className="Feed">
-        <h1>Reddit</h1>
-        <h3>r/all</h3>
+        <div>
+          <h1>Reddit</h1>
+          <select onChange={this.test}>
+            <option value="all">r/all</option>
+            <option value="unixporn">r/unixporn</option>
+            <option value="startpages">r/startpages</option>
+          </select>
+        </div>
         {this.props.data.map((item, index) =>
           <Post i={index} key={index}
             sub={item.data.subreddit} title={item.data.title}
