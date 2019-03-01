@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Feed from './component/Feed.js';
+import PostView from './component/PostView';
 
 import './App.css';
 
@@ -10,7 +11,12 @@ class App extends Component {
 
     this.state = {
       data : [],
+      postData : [],
+      commentData : [],
     }
+
+    this.postEvent = this.postEvent.bind(this);
+    this.refreshFeed = this.refreshFeed.bind(this);
   }
 
   componentDidMount() {
@@ -23,13 +29,28 @@ class App extends Component {
     //console.log(this.state.data);
   }
 
+  refreshFeed(sub) {
+    console.log('refreshing the feed');
+    fetch('/users/sub/' + sub)
+      .then((res) => res.json())
+      .then((myJSON) => this.setState({ data : myJSON.data.children }));
+
+  }
+
+  postEvent(i) {
+    fetch('/users/post/' + i)
+      .then((res) => res.json())
+      .then((postJSON) => this.setState({postData : postJSON[0].data.children[0].data,
+        commentData : postJSON[1].data.children,
+      }));
+  }
+
   render() {
     return (
       <div className="App">
-        <h1>Reddit</h1>
-        <h3>r/all</h3>
 
-        <Feed/>
+        <Feed refreshFeed={this.refreshFeed} postEvent={this.postEvent} data={this.state.data}/>
+        <PostView pd={this.state.postData} cd={this.state.commentData}/>
       </div>
     );
   }

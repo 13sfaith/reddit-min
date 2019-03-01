@@ -1,8 +1,15 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
 
-}
+  display: grid;
+  grid-template-areas: "a b";
+  grid-template-columns: 1fr 4fr;
 
-html {
-  background-color: #3AAFA9;
+  overflow: hidden;
 }

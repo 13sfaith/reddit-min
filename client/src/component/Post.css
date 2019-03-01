@@ -1,10 +1,16 @@
 .Post {
   display: grid;
-  width: 60vw;
-  height: 80px;
-  background-color: #3AAFA9;
-  border: 1px solid #2B7A78;
-  margin-bottom: 20px;
+  width: 90%;
+  height: 10%;
+  background-color: transparent;
+  border: 1px solid #009dff;
+  color: #fff;
+  overflow-y: hidden;
+  margin: auto;
+}
+
+.Post:hover {
+  background-color: #333;
 }
 
 #sub {

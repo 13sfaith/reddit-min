@@ -2,36 +2,44 @@ import React, { Component } from 'react';
 
 import Post from './Post.js';
 
+import './Feed.css';
+
 class Feed extends Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      data : [],
-    };
+    this.test = this.test.bind(this);
   }
 
-  componentDidMount() {
-    fetch('/users')
-      .then((res) => res.json())
-      .then((myJSON) => this.setState({ data : myJSON.data.children }));
-      //.then(res => res.json())
-      //.then(users => this.setState({ data : users }));
-
-    //console.log(this.state.data);
+  test(e) {
+    this.props.refreshFeed(e.target.value);
+    // console.log(e.target.value);
+    // fetch('/users/sub/aww')
+    //   .then((res) => this.props.refreshFeed());
   }
 
+  // <button onClick={this.test}></button>
+  // <h3>r/all</h3>
 
   render() {
     return(
-      <div>
-        {this.state.data.map((item, index) =>
-          <Post key={index} sub={item.data.subreddit} title={item.data.title}/>
+      <div className="Feed">
+        <div>
+          <h1>Reddit</h1>
+          <select onChange={this.test}>
+            <option value="all">r/all</option>
+            <option value="unixporn">r/unixporn</option>
+            <option value="startpages">r/startpages</option>
+          </select>
+        </div>
+        {this.props.data.map((item, index) =>
+          <Post i={index} key={index}
+            sub={item.data.subreddit} title={item.data.title}
+            postEvent={this.props.postEvent}/>
 
         )}
       </div>
     );
   }
 }
-
 export default Feed;
