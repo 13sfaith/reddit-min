@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Feed from './component/Feed.js';
+import PostView from './component/PostView';
 
 import './App.css';
 
@@ -26,10 +27,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Reddit</h1>
-        <h3>r/all</h3>
 
         <Feed/>
+        <PostView/>
       </div>
     );
   }
