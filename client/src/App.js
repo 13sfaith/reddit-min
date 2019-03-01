@@ -11,7 +11,11 @@ class App extends Component {
 
     this.state = {
       data : [],
+      postData : [],
+      commentData : [],
     }
+
+    this.postEvent = this.postEvent.bind(this);
   }
 
   componentDidMount() {
@@ -24,12 +28,23 @@ class App extends Component {
     //console.log(this.state.data);
   }
 
+  postEvent(i) {
+    console.log('Post event! ' + i);
+    fetch('/users/post/' + i)
+      .then((res) => res.json())
+      .then((postJSON) => this.setState({postData : postJSON[0].data.children[0],
+        commentData : postJSON[1].data.children,
+      }));
+
+    console.log(this.state.postData);
+  }
+
   render() {
     return (
       <div className="App">
 
-        <Feed/>
-        <PostView/>
+        <Feed postEvent={this.postEvent} data={this.state.data}/>
+        <PostView pd={this.state.postData} cd={this.state.commentData}/>
       </div>
     );
   }

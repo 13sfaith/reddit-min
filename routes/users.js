@@ -2,7 +2,7 @@ var express = require('express');
 var getJSON = require('get-json');
 var router = express.Router();
 
-var subData;
+let subData = [];
 
 // router.get('/', function(req, res) {
 //   //res.send('respond with a resource');
@@ -21,31 +21,32 @@ var subData;
 
 router.get('/', function(req, res) {
   //res.send('respond with a resource');
-
   console.log('got request!');
   getJSON('https://www.reddit.com/r/all/hot/.json',(err, data) => {
     console.log(err);
     //console.log(JSON.stringify(data));
     res.send(JSON.stringify(data));
-    subData = data;
+    var temp = data;
+    temp.data.children.map((item, i) => {
+      subData.push(item.data.permalink);
+    });
+    // subData = data;
     console.log('temp' + subData);
   });
 
 });
 
 router.get('/post/:value', function(req, res){
-  console.log(req.params.value);
 
-  var lnk = subData.data.children[req.params.value].data.permalink;
-  console.log(lnk);
-  console.log('https://reddit.com' + lnk + '.json');
-  console.log('before second promise');
+
+  var lnk = subData[req.params.value];
+
 
   getJSON('https://www.reddit.com' + lnk + '.json', function(err, data){
-    console.log(data);
+    res.send(JSON.stringify(data));
   });
 
-  res.send('hello');
+
 });
 
 module.exports = router;
