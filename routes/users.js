@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
       subData.push(item.data.permalink);
     });
     // subData = data;
-    console.log('temp' + subData);
+    // console.log('temp' + subData);
   });
 
 });

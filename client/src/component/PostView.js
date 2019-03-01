@@ -8,6 +8,7 @@ class PostView extends Component {
 
     this.state = {
       title : "",
+      isImg : false,
     };
 
   }
@@ -19,8 +20,13 @@ class PostView extends Component {
 
   componentDidUpdate(prevProps){
     if (this.props.cd.length > 0){
-      if (prevProps.pd.length === 0 || this.props.pd.data.title !== prevProps.pd.data.title){
-        this.setState({title : this.props.pd.data.title});
+      if (prevProps.pd.length === 0 || this.props.pd.title !== prevProps.pd.title){
+        this.setState({title : this.props.pd.title});
+        if (this.props.pd.post_hint === "image"){
+          this.setState({isImg : true});
+        } else {
+          this.setState({isImg : false});
+        }
       }
     }
   }
@@ -31,6 +37,8 @@ class PostView extends Component {
     return(
       <div className="PostView">
         <p className="TitlePV">{this.state.title}</p>
+        {this.state.isImg && <img src={this.props.pd.url}/>}
+
       </div>
     );
   }

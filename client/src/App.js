@@ -29,14 +29,11 @@ class App extends Component {
   }
 
   postEvent(i) {
-    console.log('Post event! ' + i);
     fetch('/users/post/' + i)
       .then((res) => res.json())
-      .then((postJSON) => this.setState({postData : postJSON[0].data.children[0],
+      .then((postJSON) => this.setState({postData : postJSON[0].data.children[0].data,
         commentData : postJSON[1].data.children,
       }));
-
-    console.log(this.state.postData);
   }
 
   render() {

@@ -8,17 +8,18 @@ class Post extends Component {
     this.postEvent = this.postEvent.bind(this);
   }
 
-  postEvent(){
+  postEvent(e){
+    console.log(e);
     this.props.postEvent(this.props.i);
   }
 
   render(){
     return(
       <div onClick={this.postEvent} className="Post">
-        <div id="sub">
+        <div className="sub">
           r/{this.props.sub}
         </div>
-        <div id="title">
+        <div className="title">
           {this.props.title}
         </div>
       </div>
