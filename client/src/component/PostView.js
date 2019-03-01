@@ -37,7 +37,7 @@ class PostView extends Component {
     return(
       <div className="PostView">
         <p className="TitlePV">{this.state.title}</p>
-        {this.state.isImg && <img src={this.props.pd.url}/>}
+        {this.state.isImg && <img className="ImgPV" src={this.props.pd.url}/>}
 
       </div>
     );
