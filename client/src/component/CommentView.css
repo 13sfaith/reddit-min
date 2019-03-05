@@ -1,0 +1,14 @@
+.CommentView {
+  overflow-y: auto;
+  border: 1px solid #666;
+  height: 100vh;
+}
+
+.Comment > p{
+  color: #fff;
+}
+
+.Comment {
+  min-width: 10vw;
+  min-height: 10vh;
+}

@@ -13,6 +13,7 @@ class App extends Component {
       data : [],
       postData : [],
       commentData : [],
+      hasPost : false,
     }
 
     this.postEvent = this.postEvent.bind(this);
@@ -42,6 +43,7 @@ class App extends Component {
       .then((res) => res.json())
       .then((postJSON) => this.setState({postData : postJSON[0].data.children[0].data,
         commentData : postJSON[1].data.children,
+        hasPost : true,
       }));
   }
 
@@ -50,7 +52,7 @@ class App extends Component {
       <div className="App">
 
         <Feed refreshFeed={this.refreshFeed} postEvent={this.postEvent} data={this.state.data}/>
-        <PostView pd={this.state.postData} cd={this.state.commentData}/>
+        {this.state.hasPost && <PostView pd={this.state.postData} cd={this.state.commentData}/>}
       </div>
     );
   }
