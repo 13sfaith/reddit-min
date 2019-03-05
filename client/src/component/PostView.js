@@ -58,6 +58,7 @@ class PostView extends Component {
         <p className="TitlePV">{this.state.title}</p>
         {this.state.isImg && <img className="ImgPV" alt="" src={this.props.pd.url}/>}
         {this.state.isVid && <embed className="VidSrc" src={this.state.vidSrc}/>}
+        <p className="postCom">{this.props.pd.selftext}</p>
         <CommentView cd={this.props.cd}/>
       </div>
     );
