@@ -10,6 +10,7 @@ class CommentView extends Component {
         {this.props.cd.map((item, i) => {
           return(<Comment key={item.data.body + i} data={item.data}/>);
         })}
+        <div>footer!</div>
       </div>
     );
   }

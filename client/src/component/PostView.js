@@ -12,6 +12,7 @@ class PostView extends Component {
       title : "",
       isImg : false,
       isVid : false,
+      vidSrc : "",
     };
 
   }
@@ -35,11 +36,15 @@ class PostView extends Component {
         }
 
         if (this.props.pd.post_hint === "hosted:video"){
-          this.setState({isVid : true});
+          this.setState({isVid : true,
+                         vidSrc : this.props.pd.media.reddit_video.scrubber_media_url,
+          });
         }
         else
         {
-          this.setState({isVid : false});
+          this.setState({isVid : false,
+                         vidSrc : "",
+          });
         }
       }
     }
@@ -51,8 +56,8 @@ class PostView extends Component {
     return(
       <div className="PostView">
         <p className="TitlePV">{this.state.title}</p>
-        {this.state.isImg && <img className="ImgPV" src={this.props.pd.url}/>}
-        {this.state.isVid && <embed className="VidSrc" src={this.props.pd.media.reddit_video.scrubber_media_url}/>}
+        {this.state.isImg && <img className="ImgPV" alt="" src={this.props.pd.url}/>}
+        {this.state.isVid && <embed className="VidSrc" src={this.state.vidSrc}/>}
         <CommentView cd={this.props.cd}/>
       </div>
     );
