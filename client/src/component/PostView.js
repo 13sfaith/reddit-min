@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import CommentView from './CommentView.js';
+
 import './PostView.css'
 
 class PostView extends Component {
@@ -43,9 +45,6 @@ class PostView extends Component {
     }
   }
 
-  // add the boolean and link to this!
-  // <embed src="https://v.redd.it/uwgu9egtxfj21/DASH_240"/>
-
   render(){
 
 
@@ -53,7 +52,8 @@ class PostView extends Component {
       <div className="PostView">
         <p className="TitlePV">{this.state.title}</p>
         {this.state.isImg && <img className="ImgPV" src={this.props.pd.url}/>}
-
+        {this.state.isVid && <embed className="VidSrc" src={this.props.pd.media.reddit_video.scrubber_media_url}/>}
+        <CommentView cd={this.props.cd}/>
       </div>
     );
   }
