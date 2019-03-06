@@ -1,8 +1,49 @@
+# Reddit Browse
 
-## Starting
+
+## Table of Contents
+* [Set-up(Dev)](#Settingupdev)
+* [Goals](#Goals)
+
+## Setting up dev
+
+TODO: restructure this
+
+clone this repo
+naviagate inside
+install backend deps with npm
+navigate to client
+install frontend deps with npm
 
 express
-* PORT=3001 node bin/www
 
+/reddit-min/
+```
+PORT=3001 node bin/www
+```
 React
-* npm start
+
+/reddit-min/client/
+```
+npm start
+```
+
+## Goals
+
+Minimum reddit browser
+
+Simple and Minimal UI
+
+* Feed
+  * change/search for subreddits
+  * shows user/score/title/thumbmnail
+* Post
+  * Title
+  * Score
+  * User
+  * body
+  * comments
+    * User
+    * body
+    * children
+    * score
