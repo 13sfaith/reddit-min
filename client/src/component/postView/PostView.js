@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
 import CommentView from './CommentView.js';
+import PostHeader from './PostHeader.js';
 
-import './PostView.css'
+import './PostView.css';
 
 class PostView extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      title : "",
+      headData : "",
       isImg : false,
       isVid : false,
       vidSrc : "",
@@ -25,7 +26,13 @@ class PostView extends Component {
   componentDidUpdate(prevProps){
     if (this.props.cd.length > 0){
       if (prevProps.pd.length === 0 || this.props.pd.title !== prevProps.pd.title){
-        this.setState({title : this.props.pd.title});
+        var data = {
+          title : this.props.pd.title,
+          sub : this.props.pd.subreddit,
+          auth : this.props.pd.author,
+          score : this.props.pd.score,
+        };
+        this.setState({headData : data});
         if (this.props.pd.post_hint === "image")
         {
           this.setState({isImg : true});
@@ -54,12 +61,14 @@ class PostView extends Component {
 
 
     return(
-      <div className="PostView">
-        <p className="TitlePV">{this.state.title}</p>
-        {this.state.isImg && <img className="ImgPV" alt="" src={this.props.pd.url}/>}
-        {this.state.isVid && <embed className="VidSrc" src={this.state.vidSrc}/>}
-        <p className="postCom">{this.props.pd.selftext}</p>
-        <CommentView cd={this.props.cd}/>
+      <div className="PostContain">
+        <div className="PostView">
+          <PostHeader data={this.state.headData} />
+          {this.state.isImg && <img className="ImgPV" alt="" src={this.props.pd.url}/>}
+          {this.state.isVid && <embed className="VidSrc" src={this.state.vidSrc}/>}
+          <p className="postCom">{this.props.pd.selftext}</p>
+          <CommentView cd={this.props.cd}/>
+        </div>
       </div>
     );
   }

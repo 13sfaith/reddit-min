@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Feed from './component/Feed.js';
-import PostView from './component/PostView';
+import PostView from './component/postView/PostView.js';
 
 import './App.css';
 

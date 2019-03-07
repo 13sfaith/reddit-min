@@ -1,13 +1,14 @@
-.PostView {
+.PostContain {
   width: 100%;
   height: 100%;
-  background-color: transparent;
-  overflow-y: auto;
 }
 
-.TitlePV {
-  color: #ff0eaf;
-  font-size: 40px;
+.PostView {
+  width: 90%;
+  height: 90%;
+  background-color: #3A506B;
+  overflow-y: auto;
+  margin: auto;
 }
 
 .ImgPV {

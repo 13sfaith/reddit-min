@@ -1,0 +1,23 @@
+.PostHeader {
+  display: grid;
+  grid-template-areas: "score sub   auth"
+                       "score title title";
+  color: #fff;
+}
+
+.PostSub {
+  grid-area: sub;
+}
+
+.PostAuthor {
+  grid-area: auth;
+}
+
+.PostScore {
+  grid-area: score;
+  margin: auto;
+}
+
+.PostTitle {
+  grid-area: title;
+}
