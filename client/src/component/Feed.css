@@ -7,3 +7,11 @@
   overflow-y: scroll;
   scrollbar-width: none;
 }
+
+select {
+  background-color: transparent;
+  color: #6FFFE9;
+  border: none;
+  height: 10vh;
+  font-size: 36px;
+}

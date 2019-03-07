@@ -25,7 +25,6 @@ class Feed extends Component {
     return(
       <div className="Feed">
         <div>
-          <h1>Reddit</h1>
           <select onChange={this.test}>
             <option value="all">r/all</option>
             <option value="unixporn">r/unixporn</option>

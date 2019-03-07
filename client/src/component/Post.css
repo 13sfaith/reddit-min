@@ -2,15 +2,15 @@
   display: grid;
   width: 90%;
   height: 10%;
-  background-color: transparent;
-  border: 1px solid #009dff;
-  color: #fff;
+  background-color: #7C9EB2;
+  color: #000;
   overflow-y: hidden;
   margin: auto;
+  margin-top: 15px;
 }
 
 .Post:hover {
-  background-color: #333;
+  background-color: #3A506B;
 }
 
 #sub {
