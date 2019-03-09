@@ -71,7 +71,13 @@ class App extends Component {
   }
 
   handleKey(k){
-    console.log('wowsers');
+    //change post using keyboard ;D
+
+    if (k.key === 'ArrowLeft'){
+      this.postEvent(-1);
+    } else if (k.key === 'ArrowRight'){
+      this.postEvent(1);
+    }
   }
 
   // <Feed refreshFeed={this.refreshFeed} postEvent={this.postEvent} data={this.state.data}/>
@@ -79,7 +85,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" onWheel={(e) => this.wheel(e)}>
+      <div className="App" tabIndex="0" onKeyDown={(k) => this.handleKey(k)} onWheel={(e) => this.wheel(e)}>
         <SubSelect />
         <PostCard pd={this.state.postData} height={this.state.height + "vh"}/>
         <Arrow pe={this.postEvent}/>
