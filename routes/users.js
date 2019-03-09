@@ -48,25 +48,6 @@ router.get('/', function(req, res) {
 
 });
 
-// router.get('/', function(req, res) {
-//   //res.send('respond with a resource');
-//   console.log('got request!');
-//   getJSON('https://www.reddit.com/r/'+ curSub +'/hot/.json',(err, data) => {
-//     console.log(err);
-//     //console.log(JSON.stringify(data));
-//     res.send(JSON.stringify(data));
-//     var temp = data;
-//     temp.data.children.map((item, i) => {
-//       subData.push(item.data.permalink);
-//     });
-//     getSub.then(function(value){
-//       console.log(value);
-//     });
-//     // subData = data;
-//     // console.log('temp' + subData);
-//   });
-//
-// });
 
 router.get('/sub/:name', function(req, res){
   // console.log(req.params.name);
@@ -83,7 +64,6 @@ router.get('/post/:value', function(req, res){
 
 
   var lnk = subData[req.params.value];
-
 
   getJSON('https://www.reddit.com' + lnk + '.json', function(err, data){
     res.send(JSON.stringify(data));

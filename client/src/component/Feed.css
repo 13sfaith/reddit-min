@@ -1,9 +1,0 @@
-.Feed {
-  width: 20vw;
-  height: 100vh;
-  background-color: transparent;
-  color: #fff;
-  margin-left: 1vw;
-  overflow-y: scroll;
-  scrollbar-width: none;
-}

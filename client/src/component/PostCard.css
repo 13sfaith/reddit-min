@@ -1,0 +1,33 @@
+.PostCard {
+  position: fixed;
+  width: 75vw;
+  height: 100vh;
+  background-color: #fff;
+  align-self: center;
+  justift-self: center;
+  margin-left: 12.5vw;
+}
+
+.Head {
+  height: 30%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "sub auth gild"
+                       "titl titl titl";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Head > .Sub {
+  grid-area: sub;
+  color: #666;
+}
+
+.Head > .Author {
+  grid-area: auth;
+  color: #666;
+}
+
+.Head > .Title {
+  grid-area: titl;
+  font-size: 32px;
+}

@@ -1,0 +1,20 @@
+.Arrow {
+  width: 100vw;
+  align-self: center;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.Arrow > div:hover {
+  background-color: #333;
+}
+
+.Arrow > .Left {
+  align-self: flex-start;
+}
+
+.Arrow > .Right {
+  align-self: flex-end;
+}
