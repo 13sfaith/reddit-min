@@ -5,7 +5,15 @@ import Head from './Head.js';
 import './PostCard.css';
 
 class PostCard extends Component {
+  constructor(props){
+    super(props);
 
+    this.handleKey = this.handleKey.bind(this);
+  }
+
+  handleKey(e){
+    console.log('thank god');
+  }
 
   render(){
     let styles = {
