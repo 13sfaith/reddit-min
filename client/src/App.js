@@ -25,10 +25,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('/users')
+    fetch('/api')
       .then((res) => res.json())
-      .then((myJSON) => this.setState({ data : myJSON.data.children }))
-      .then(this.postEvent(0));
+      .then((postJSON) => this.setState({postData : postJSON[0].data.children[0].data,
+        commentData : postJSON[1].data.children,
+        hasPost : true,
+      }));
       //.then(res => res.json())
       //.then(users => this.setState({ data : users }));
 
@@ -49,18 +51,16 @@ class App extends Component {
 
     this.setState({i : logI});
 
-    console.log('logI is: ' + logI);
-    console.log('new i is: ' + this.state.i);
-
-    fetch('/users/post/' + this.state.i)
+    fetch('/api/i/' + (this.state.i + mod))
       .then((res) => res.json())
       .then((postJSON) => this.setState({postData : postJSON[0].data.children[0].data,
         commentData : postJSON[1].data.children,
         hasPost : true,
+        height: 30,
       }))
       .catch((err) => console.log(err));
   }
-  // onWheel={(e) => this.wheel(e)}
+
   wheel(e){
     if (e !== undefined){
       var speed = e.deltaY;
