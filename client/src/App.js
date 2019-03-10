@@ -31,6 +31,11 @@ class App extends Component {
         commentData : postJSON[1].data.children,
         hasPost : true,
       }));
+
+    var date = new Date();
+
+    console.log(date.getTime());
+    console.log(this.state.postData.created);
       //.then(res => res.json())
       //.then(users => this.setState({ data : users }));
 
