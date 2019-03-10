@@ -1,4 +1,4 @@
-# Reddit Browse
+# Browser for Reddit
 
 
 ## Table of Contents
@@ -30,7 +30,7 @@ npm start
 
 ## Goals
 
-Minimum reddit browser
+Tinder style web app for Reddit
 
 Simple and Minimal UI
 
