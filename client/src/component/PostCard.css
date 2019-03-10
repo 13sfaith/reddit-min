@@ -1,7 +1,7 @@
 .PostCard {
   position: fixed;
   width: 75vw;
-  height: 100vh;
+  height: 150vh;
   background-color: #fff;
   align-self: center;
   justift-self: center;
@@ -30,4 +30,8 @@
 .Head > .Title {
   grid-area: titl;
   font-size: 32px;
+}
+
+img {
+  width: 75vw;
 }

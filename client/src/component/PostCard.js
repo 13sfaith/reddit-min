@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Head from './Head.js';
+import Media from './Media.js';
 
 import './PostCard.css';
 
@@ -22,6 +23,7 @@ class PostCard extends Component {
     return(
       <div style={styles} className="PostCard">
         <Head pd={this.props.pd}/>
+        <Media pd={this.props.pd}/>
       </div>
     );
   }
